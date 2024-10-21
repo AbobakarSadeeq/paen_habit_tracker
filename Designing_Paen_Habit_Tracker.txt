@@ -1,0 +1,20 @@
+1. if i make one week only shows up on the main page.
+2. swaping will be go to next/prev week
+3. 10 columns, 7 days for week, 8 column(current streak), 9 column(longest streak) 10(total count) 
+4. sunday will not break streak
+5. reward system after single day habit completed maybe spin system where (your fav things will be spin and which comes select and do that).
+6. when adding habits then color selection and habit name will be shows up on model.
+
+Benefits
+1. this will do shows all habits on one screen.
+2. not hard ui to have it.
+
+
+Page should have:
+1. MonthName, week number of the month, year.
+2. Total habits count done and remaining habits count.
+3. 11 columns.
+4. current week number days.
+5. first column is habitName.
+6. last three columns should be sweap able.
+7. current day highlighted on calender.
