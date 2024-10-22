@@ -1,9 +1,12 @@
 1. if i make one week only shows up on the main page.
-2. swaping will be go to next/prev week
+2. swaping will be go to next/prev week or back button
 3. 10 columns, 7 days for week, 8 column(current streak), 9 column(longest streak) 10(total count) 
 4. sunday will not break streak
 5. reward system after single day habit completed maybe spin system where (your fav things will be spin and which comes select and do that).
 6. when adding habits then color selection and habit name will be shows up on model.
+9. should have that kind of functionality that can be ignore on that specific day and only one chance for one week.
+10. forwards days will be disable and shows disable interface.
+11. if a habit added new after sometime and others with it added before from it then disable before all its days.
 
 Benefits
 1. this will do shows all habits on one screen.
@@ -18,3 +21,14 @@ Page should have:
 5. first column is habitName.
 6. last three columns should be sweap able.
 7. current day highlighted on calender.
+
+
+
+DB
+1. store single type of action has been done on db as well, i mean everything. not just update it i mean add it.
+
+
+Additional:
+1. add emojes for emotions when check mark the box
+2. add notes there on for tracking the behaviour about this checkmark.
+3. No matter how consistent you are with your habits, it is inevitable that life will interrupt you at some point. Perfection is not possible. Before long, an emergency will pop up—you get sick or you have to travel for work or your family needs a little more of your time. Whenever this happens to me, I try to remind myself of a simple rule: never miss twice, If I miss one day, I try to get back into it as quickly as possible. Missing one workout happens, but I’m not going to miss two in a row.
