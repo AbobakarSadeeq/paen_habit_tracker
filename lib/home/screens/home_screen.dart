@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/habit_table.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -24,34 +26,36 @@ class _HomeScreen extends State<HomeScreen> {
       home: Scaffold(
         appBar: AppBar(
           title: Text('hi how are you'),
-          backgroundColor: Colors.red,
+          backgroundColor: Colors.green,
+          toolbarHeight: 20,
         ),
         body: Container(
-            color: Colors.black,
-            height: double.infinity,
-            width: double.infinity,
-            child: Row(
-              children: [
-                Container(
-                  child: Text(
-                    'Hi, how are you? ',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-                Container(
-                  child: Text(
-                    'Hi, how are you 2? ',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-                Container(
-                  child: Text(
-                    'Hi, how are you 3? ',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ),
-              ],
-            )),
+          color: Colors.black12,
+          height: double.infinity,
+          width: double.infinity,
+          child: const HabitTable(),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: 'Search',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Profile',
+            ),
+          ],
+          currentIndex: 0, // Default selected tab
+          onTap: (index) {
+            // Handle the tab tap, like navigating to a new screen or updating content
+            print("Selected Index: $index");
+          },
+        ),
       ),
     );
   }
