@@ -9,7 +9,7 @@ class HabitTable extends StatelessWidget {
       children: [
         Container(
           child: Table(
-            border: TableBorder.all(), // Adds borders to the table
+            border: TableBorder.symmetric(), // Adds borders to the table
             columnWidths: {
               0: FlexColumnWidth(2), // Column 1 width
               1: FlexColumnWidth(1), // Column 2 width
@@ -24,92 +24,64 @@ class HabitTable extends StatelessWidget {
               TableRow(children: [
                 Container(
                   padding: EdgeInsets.only(top: 13, bottom: 13),
-                  child: Center(child: Text('Habits')),
+                  child: Center(
+                      child: Text(
+                    'Habits',
+                    style: TextStyle(color: Colors.white),
+                  )),
                 ),
                 Column(
                   children: [
-                    Text('F'),
-                    Divider(
-                      height: 8, // Space around the divider
-                      color: Colors.black, // Color of the line
-                      thickness: 2,
-                    ),
-                    Text('1')
+                    Text('F', style: TextStyle(color: Colors.white)),
+                    Text('1', style: TextStyle(color: Colors.white))
                   ],
                 ),
                 Column(
                   children: [
-                    Text('S'),
-                    Divider(
-                      height: 8, // Space around the divider
-                      color: Colors.black, // Color of the line
-                      thickness: 2,
-                    ),
-                    Text('2')
+                    Text('S', style: TextStyle(color: Colors.white)),
+                    Text('2', style: TextStyle(color: Colors.white))
                   ],
                 ),
                 Column(
                   children: [
-                    Text('S'),
-                    Divider(
-                      height: 8, // Space around the divider
-                      color: Colors.black, // Color of the line
-                      thickness: 2,
-                    ),
-                    Text('3')
+                    Text('S', style: TextStyle(color: Colors.white)),
+                    Text('3', style: TextStyle(color: Colors.white))
                   ],
                 ),
                 Column(
                   children: [
-                    Text('M'),
-                    Divider(
-                      height: 8, // Space around the divider
-                      color: Colors.black, // Color of the line
-                      thickness: 2,
-                    ),
-                    Text('4')
+                    Text('M', style: TextStyle(color: Colors.white)),
+                    Text('4', style: TextStyle(color: Colors.white))
                   ],
                 ),
                 Column(
                   children: [
-                    Text('T'),
-                    Divider(
-                      height: 8, // Space around the divider
-                      color: Colors.black, // Color of the line
-                      thickness: 2,
-                    ),
-                    Text('5')
+                    Text('T', style: TextStyle(color: Colors.white)),
+                    Text('5', style: TextStyle(color: Colors.white))
                   ],
                 ),
                 Column(
                   children: [
-                    Text('W'),
-                    Divider(
-                      height: 8, // Space around the divider
-                      color: Colors.black, // Color of the line
-                      thickness: 2,
-                    ),
-                    Text('6')
+                    Text('W', style: TextStyle(color: Colors.white)),
+                    Text('6', style: TextStyle(color: Colors.white))
                   ],
                 ),
                 Column(
                   children: [
-                    Text('T'),
-                    Divider(
-                      height: 8, // Space around the divider
-                      color: Colors.black, // Color of the line
-                      thickness: 2,
-                    ),
-                    Text('7')
+                    Text('T', style: TextStyle(color: Colors.white)),
+                    Text('7', style: TextStyle(color: Colors.white))
                   ],
                 ),
               ]),
               TableRow(children: [
-                Center(child: Text('Read book Automatic heart')),
+                Center(
+                    child: Text('Read book Automatic heart',
+                        style: TextStyle(color: Colors.white))),
                 TableCell(
                     verticalAlignment: TableCellVerticalAlignment.fill,
                     child: Container(
-                        color: Colors.red,
+                        color: Color.fromRGBO(
+                            45, 162, 13, 1), // Colors.transparent
                         child: Icon(
                           Icons.check,
                           color: Colors.white,
@@ -118,7 +90,7 @@ class HabitTable extends StatelessWidget {
                 TableCell(
                     verticalAlignment: TableCellVerticalAlignment.fill,
                     child: Container(
-                        color: Colors.red,
+                        color: Color.fromRGBO(45, 162, 13, 1),
                         child: Icon(
                           Icons.check,
                           color: Colors.white,
@@ -127,7 +99,7 @@ class HabitTable extends StatelessWidget {
                 TableCell(
                     verticalAlignment: TableCellVerticalAlignment.fill,
                     child: Container(
-                        color: Colors.red,
+                        color: Color.fromRGBO(45, 162, 13, 1),
                         child: Icon(
                           Icons.check,
                           color: Colors.white,
@@ -136,7 +108,7 @@ class HabitTable extends StatelessWidget {
                 TableCell(
                     verticalAlignment: TableCellVerticalAlignment.fill,
                     child: Container(
-                        color: Colors.red,
+                        color: Color.fromRGBO(45, 162, 13, 1),
                         child: Icon(
                           Icons.check,
                           color: Colors.white,
@@ -145,7 +117,7 @@ class HabitTable extends StatelessWidget {
                 TableCell(
                     verticalAlignment: TableCellVerticalAlignment.fill,
                     child: Container(
-                        color: Colors.red,
+                        color: Color.fromRGBO(45, 162, 13, 1),
                         child: Icon(
                           Icons.check,
                           color: Colors.white,
@@ -154,7 +126,7 @@ class HabitTable extends StatelessWidget {
                 TableCell(
                     verticalAlignment: TableCellVerticalAlignment.fill,
                     child: Container(
-                        color: Colors.red,
+                        color: Color.fromRGBO(45, 162, 13, 1),
                         child: Icon(
                           Icons.check,
                           color: Colors.white,
@@ -163,7 +135,7 @@ class HabitTable extends StatelessWidget {
                 TableCell(
                     verticalAlignment: TableCellVerticalAlignment.fill,
                     child: Container(
-                        color: Colors.red,
+                        color: Color.fromRGBO(45, 162, 13, 1),
                         child: Icon(
                           Icons.check,
                           color: Colors.white,
@@ -171,11 +143,13 @@ class HabitTable extends StatelessWidget {
                         ))),
               ]),
               TableRow(children: [
-                Center(child: Text('10 mints cleaning')),
+                Center(
+                    child: Text('10 mints cleaning',
+                        style: TextStyle(color: Colors.white))),
                 TableCell(
                     verticalAlignment: TableCellVerticalAlignment.fill,
                     child: Container(
-                        color: Colors.red,
+                        color: Color.fromRGBO(45, 162, 13, 1),
                         child: Icon(
                           Icons.check,
                           color: Colors.white,
@@ -184,7 +158,7 @@ class HabitTable extends StatelessWidget {
                 TableCell(
                     verticalAlignment: TableCellVerticalAlignment.fill,
                     child: Container(
-                        color: Colors.red,
+                        color: Color.fromRGBO(45, 162, 13, 1),
                         child: Icon(
                           Icons.check,
                           color: Colors.white,
@@ -193,7 +167,7 @@ class HabitTable extends StatelessWidget {
                 TableCell(
                     verticalAlignment: TableCellVerticalAlignment.fill,
                     child: Container(
-                        color: Colors.red,
+                        color: Color.fromRGBO(45, 162, 13, 1),
                         child: Icon(
                           Icons.check,
                           color: Colors.white,
@@ -202,7 +176,7 @@ class HabitTable extends StatelessWidget {
                 TableCell(
                     verticalAlignment: TableCellVerticalAlignment.fill,
                     child: Container(
-                        color: Colors.red,
+                        color: Color.fromRGBO(45, 162, 13, 1),
                         child: Icon(
                           Icons.check,
                           color: Colors.white,
@@ -211,7 +185,7 @@ class HabitTable extends StatelessWidget {
                 TableCell(
                     verticalAlignment: TableCellVerticalAlignment.fill,
                     child: Container(
-                        color: Colors.red,
+                        color: Color.fromRGBO(45, 162, 13, 1),
                         child: Icon(
                           Icons.check,
                           color: Colors.white,
@@ -220,7 +194,7 @@ class HabitTable extends StatelessWidget {
                 TableCell(
                     verticalAlignment: TableCellVerticalAlignment.fill,
                     child: Container(
-                        color: Colors.red,
+                        color: Color.fromRGBO(45, 162, 13, 1),
                         child: Icon(
                           Icons.check,
                           color: Colors.white,
@@ -229,7 +203,7 @@ class HabitTable extends StatelessWidget {
                 TableCell(
                     verticalAlignment: TableCellVerticalAlignment.fill,
                     child: Container(
-                        color: Colors.red,
+                        color: Color.fromRGBO(45, 162, 13, 1),
                         child: Icon(
                           Icons.check,
                           color: Colors.white,
@@ -237,11 +211,13 @@ class HabitTable extends StatelessWidget {
                         ))),
               ]),
               TableRow(children: [
-                Center(child: Text('coding practice')),
+                Center(
+                    child: Text('coding practice',
+                        style: TextStyle(color: Colors.white))),
                 TableCell(
                     verticalAlignment: TableCellVerticalAlignment.fill,
                     child: Container(
-                        color: Colors.red,
+                        color: Color.fromRGBO(45, 162, 13, 1),
                         child: Icon(
                           Icons.check,
                           color: Colors.white,
@@ -250,7 +226,7 @@ class HabitTable extends StatelessWidget {
                 TableCell(
                     verticalAlignment: TableCellVerticalAlignment.fill,
                     child: Container(
-                        color: Colors.red,
+                        color: Color.fromRGBO(45, 162, 13, 1),
                         child: Icon(
                           Icons.check,
                           color: Colors.white,
@@ -259,7 +235,7 @@ class HabitTable extends StatelessWidget {
                 TableCell(
                     verticalAlignment: TableCellVerticalAlignment.fill,
                     child: Container(
-                        color: Colors.red,
+                        color: Color.fromRGBO(45, 162, 13, 1),
                         child: Icon(
                           Icons.check,
                           color: Colors.white,
@@ -268,7 +244,7 @@ class HabitTable extends StatelessWidget {
                 TableCell(
                     verticalAlignment: TableCellVerticalAlignment.fill,
                     child: Container(
-                        color: Colors.red,
+                        color: Color.fromRGBO(45, 162, 13, 1),
                         child: Icon(
                           Icons.check,
                           color: Colors.white,
@@ -277,7 +253,7 @@ class HabitTable extends StatelessWidget {
                 TableCell(
                     verticalAlignment: TableCellVerticalAlignment.fill,
                     child: Container(
-                        color: Colors.red,
+                        color: Color.fromRGBO(45, 162, 13, 1),
                         child: Icon(
                           Icons.check,
                           color: Colors.white,
@@ -286,7 +262,7 @@ class HabitTable extends StatelessWidget {
                 TableCell(
                     verticalAlignment: TableCellVerticalAlignment.fill,
                     child: Container(
-                        color: Colors.red,
+                        color: Color.fromRGBO(45, 162, 13, 1),
                         child: Icon(
                           Icons.check,
                           color: Colors.white,
@@ -295,7 +271,7 @@ class HabitTable extends StatelessWidget {
                 TableCell(
                     verticalAlignment: TableCellVerticalAlignment.fill,
                     child: Container(
-                        color: Colors.red,
+                        color: Color.fromRGBO(45, 162, 13, 1),
                         child: Icon(
                           Icons.check,
                           color: Colors.white,
@@ -327,9 +303,16 @@ class HabitTable extends StatelessWidget {
                   height: 40,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                        primary: Colors.green[800], // Dark  green color
+                        primary: Colors.transparent, // Transparent background
+                        shadowColor: Colors.transparent, // Remove button shadow
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.zero, // Rectangular shape
+                          borderRadius: BorderRadius.circular(
+                              3), // Optional: Adjust corner radius
+                          side: BorderSide(
+                            color:
+                                Color.fromRGBO(45, 162, 13, 1), // Border color
+                            width: 2, // Border width
+                          ),
                         ),
                         padding: EdgeInsets.symmetric(horizontal: 1)),
                     onPressed: () {
@@ -337,8 +320,8 @@ class HabitTable extends StatelessWidget {
                       print('Add Habit button clicked');
                     },
                     child: Text(
-                      'Add Habit +',
-                      style: TextStyle(color: Colors.white),
+                      '+ new habit',
+                      style: TextStyle(color: Color.fromRGBO(45, 162, 13, 1)),
                     ), // Button label
                   ),
                 ),
@@ -348,9 +331,9 @@ class HabitTable extends StatelessWidget {
                     width: double.infinity,
                     height: double.infinity,
                     decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.red // Make the container circular
-                        ),
+                      shape: BoxShape.circle,
+                      color: Color.fromRGBO(45, 162, 13, 1),
+                    ),
                     child: Center(
                         child: Text(
                       '90',
@@ -364,9 +347,10 @@ class HabitTable extends StatelessWidget {
                     width: double.infinity,
                     height: double.infinity,
                     decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.red // Make the container circular
-                        ),
+                      shape: BoxShape.circle,
+                      color: Color.fromRGBO(45, 162, 13, 1),
+                      // Make the container circular
+                    ),
                     child: Center(
                         child: Text(
                       '90',
@@ -380,9 +364,10 @@ class HabitTable extends StatelessWidget {
                     width: double.infinity,
                     height: double.infinity,
                     decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.red // Make the container circular
-                        ),
+                      shape: BoxShape.circle,
+                      color: Color.fromRGBO(
+                          45, 162, 13, 1), // Make the container circular
+                    ),
                     child: Center(
                         child: Text(
                       '20',
@@ -396,9 +381,10 @@ class HabitTable extends StatelessWidget {
                     width: double.infinity,
                     height: double.infinity,
                     decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.red // Make the container circular
-                        ),
+                      shape: BoxShape.circle,
+                      color: Color.fromRGBO(
+                          45, 162, 13, 1), // Make the container circular
+                    ),
                     child: Center(
                         child: Text(
                       '45',
@@ -412,9 +398,10 @@ class HabitTable extends StatelessWidget {
                     width: double.infinity,
                     height: double.infinity,
                     decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.red // Make the container circular
-                        ),
+                      shape: BoxShape.circle,
+                      color: Color.fromRGBO(
+                          45, 162, 13, 1), // Make the container circular
+                    ),
                     child: Center(
                         child: Text(
                       '45',
@@ -428,9 +415,10 @@ class HabitTable extends StatelessWidget {
                     width: double.infinity,
                     height: double.infinity,
                     decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.red // Make the container circular
-                        ),
+                      shape: BoxShape.circle,
+                      color: Color.fromRGBO(
+                          45, 162, 13, 1), // Make the container circular
+                    ),
                     child: Center(
                         child: Text(
                       '43',
@@ -444,9 +432,10 @@ class HabitTable extends StatelessWidget {
                     width: double.infinity,
                     height: double.infinity,
                     decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.red // Make the container circular
-                        ),
+                      shape: BoxShape.circle,
+                      color: Color.fromRGBO(
+                          45, 162, 13, 1), // Make the container circular
+                    ),
                     child: Center(
                         child: Text(
                       '35',
