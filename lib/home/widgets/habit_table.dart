@@ -1,7 +1,23 @@
 import 'package:flutter/material.dart';
 
-class HabitTable extends StatelessWidget {
-  const HabitTable({super.key});
+class HabitTable extends StatefulWidget {
+  dynamic last7Days;
+  HabitTable({super.key, this.last7Days});
+
+  @override
+  _HabitTableState createState() => _HabitTableState();
+}
+
+class _HabitTableState extends State<HabitTable> {
+  @override
+  void initState() {
+    super.initState();
+    _initializeHabitTable();
+  }
+
+  Future<void> _initializeHabitTable() async {
+    WidgetsBinding.instance.addPostFrameCallback((_) async {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,44 +48,149 @@ class HabitTable extends StatelessWidget {
                 ),
                 Column(
                   children: [
-                    Text('F', style: TextStyle(color: Colors.white)),
-                    Text('1', style: TextStyle(color: Colors.white))
+                    Text(widget.last7Days[6]['dayName'],
+                        style: TextStyle(color: Colors.white)),
+                    Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: widget.last7Days[6]
+                                    ['isCurrentDateIsTodayDate'] ==
+                                true
+                            ? Color.fromRGBO(45, 162, 13, 1)
+                            : Colors.transparent, // Colors.transparent
+                      ),
+                      child: Center(
+                          child: Text(
+                        widget.last7Days[6]['date'],
+                        style: TextStyle(color: Colors.white),
+                      )),
+                    ),
                   ],
                 ),
                 Column(
                   children: [
-                    Text('S', style: TextStyle(color: Colors.white)),
-                    Text('2', style: TextStyle(color: Colors.white))
+                    Text(widget.last7Days[5]['dayName'],
+                        style: TextStyle(color: Colors.white)),
+                    Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: widget.last7Days[5]
+                                    ['isCurrentDateIsTodayDate'] ==
+                                true
+                            ? Color.fromRGBO(45, 162, 13, 1)
+                            : Colors.transparent,
+                      ),
+                      child: Center(
+                          child: Text(
+                        widget.last7Days[5]['date'],
+                        style: TextStyle(color: Colors.white),
+                      )),
+                    ),
                   ],
                 ),
                 Column(
                   children: [
-                    Text('S', style: TextStyle(color: Colors.white)),
-                    Text('3', style: TextStyle(color: Colors.white))
+                    Text(widget.last7Days[4]['dayName'],
+                        style: TextStyle(color: Colors.white)),
+                    Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: widget.last7Days[4]
+                                    ['isCurrentDateIsTodayDate'] ==
+                                true
+                            ? Color.fromRGBO(45, 162, 13, 1)
+                            : Colors.transparent,
+                      ),
+                      child: Center(
+                          child: Text(
+                        widget.last7Days[4]['date'],
+                        style: TextStyle(color: Colors.white),
+                      )),
+                    ),
                   ],
                 ),
                 Column(
                   children: [
-                    Text('M', style: TextStyle(color: Colors.white)),
-                    Text('4', style: TextStyle(color: Colors.white))
+                    Text(widget.last7Days[3]['dayName'],
+                        style: TextStyle(color: Colors.white)),
+                    Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: widget.last7Days[3]
+                                    ['isCurrentDateIsTodayDate'] ==
+                                true
+                            ? Color.fromRGBO(45, 162, 13, 1)
+                            : Colors.transparent,
+                      ),
+                      child: Center(
+                          child: Text(
+                        widget.last7Days[3]['date'],
+                        style: TextStyle(color: Colors.white),
+                      )),
+                    ),
                   ],
                 ),
                 Column(
                   children: [
-                    Text('T', style: TextStyle(color: Colors.white)),
-                    Text('5', style: TextStyle(color: Colors.white))
+                    Text(widget.last7Days[2]['dayName'],
+                        style: TextStyle(color: Colors.white)),
+                    Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: widget.last7Days[2]
+                                    ['isCurrentDateIsTodayDate'] ==
+                                true
+                            ? Color.fromRGBO(45, 162, 13, 1)
+                            : Colors.transparent,
+                      ),
+                      child: Center(
+                          child: Text(
+                        widget.last7Days[2]['date'],
+                        style: TextStyle(color: Colors.white),
+                      )),
+                    ),
                   ],
                 ),
                 Column(
                   children: [
-                    Text('W', style: TextStyle(color: Colors.white)),
-                    Text('6', style: TextStyle(color: Colors.white))
+                    Text(widget.last7Days[1]['dayName'],
+                        style: TextStyle(color: Colors.white)),
+                    Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: widget.last7Days[1]
+                                    ['isCurrentDateIsTodayDate'] ==
+                                true
+                            ? Color.fromRGBO(45, 162, 13, 1)
+                            : Colors.transparent,
+                      ),
+                      child: Center(
+                          child: Text(
+                        widget.last7Days[1]['date'],
+                        style: TextStyle(color: Colors.white),
+                      )),
+                    ),
                   ],
                 ),
                 Column(
                   children: [
-                    Text('T', style: TextStyle(color: Colors.white)),
-                    Text('7', style: TextStyle(color: Colors.white))
+                    Text(widget.last7Days[0]['dayName'],
+                        style: TextStyle(color: Colors.white)),
+                    Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: widget.last7Days[0]
+                                    ['isCurrentDateIsTodayDate'] ==
+                                true
+                            ? Color.fromRGBO(45, 162, 13, 1)
+                            : Colors.transparent,
+                      ),
+                      child: Center(
+                          child: Text(
+                        widget.last7Days[0]['date'],
+                        style: TextStyle(color: Colors.white),
+                      )),
+                    ),
                   ],
                 ),
               ]),
