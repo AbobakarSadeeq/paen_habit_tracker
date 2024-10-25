@@ -208,7 +208,7 @@ class _HomeScreen extends State<HomeScreen> {
                   child: last7Days.length > 0
                       ? HabitTable(last7Days: last7Days)
                       : Container(), // last7DaysList:last7Days
-                ),
+                )
               ],
             ),
           ),
