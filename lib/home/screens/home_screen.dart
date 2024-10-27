@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
+import '../models/habits.dart';
 import '../widgets/habit_table.dart';
 import 'package:intl/intl.dart'; // Import intl package
 
@@ -17,6 +18,8 @@ class _HomeScreen extends State<HomeScreen> {
   String currentDate = "";
   String currentWeekNo = "";
   dynamic last7Days = [];
+  List<Habits> habits = [];
+
   @override
   void initState() {
     super.initState();

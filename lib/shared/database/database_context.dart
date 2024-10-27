@@ -21,13 +21,28 @@ class DatabaseContext {
   Future<void> create(Database database, int version) async {
     // all tables here like below
     // await createSignalRGroupsTable(database);
+    await createHabitsTable(database);
+    await createHabitsTrackingDaysTable(database);
   }
 
-  Future<void> createSignalRGroupsTable(Database database) async {
-    //   await database.execute('''
-    //   CREATE TABLE Groups (
-    //   SignalRGroupID INTEGER PRIMARY KEY AUTOINCREMENT,
-    //   GroupId TEXT NOT NULL);
-    //       ''');
+  Future<void> createHabitsTable(Database database) async {
+    await database.execute('''
+      CREATE TABLE Habits (
+      HabitID INTEGER PRIMARY KEY AUTOINCREMENT,
+      HabitName TEXT NOT NULL,
+      CreatedAt TEXT NOT NULL
+      );
+          ''');
+  }
+
+  Future<void> createHabitsTrackingDaysTable(Database database) async {
+    await database.execute('''
+      CREATE TABLE HabitsTrackingDays (
+      HabitsTrackingDaysID INTEGER PRIMARY KEY AUTOINCREMENT,
+      IsHabitDoneToday INTEGER NOT NULL CHECK (IsHabitDoneToday IN (0, 1)),
+      HabitDoneAt TEXT NOT NULL
+      FOREIGN KEY (HabitId) REFERENCES Habits(HabitID)
+      );
+          ''');
   }
 }
