@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:paen_habit_tracker/home/models/habits.dart';
+import 'package:paen_habit_tracker/home/models/habits_tracking_days.dart';
+import 'package:paen_habit_tracker/home/repository/habit_repository.dart';
+import 'package:paen_habit_tracker/home/view_modal/habits_view_modal.dart';
+import 'package:paen_habit_tracker/service_locator.dart';
 
 class HabitTable extends StatefulWidget {
   dynamic last7Days;
@@ -9,176 +15,10 @@ class HabitTable extends StatefulWidget {
 }
 
 class _HabitTableState extends State<HabitTable> {
-  dynamic habitList = [
-    {
-      'habitName': 'hi how are you khan?',
-      'days': [
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-      ]
-    },
-    {
-      'habitName': 'hi how are you khan?',
-      'days': [
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-      ]
-    },
-    {
-      'habitName': 'hi how are you khan?',
-      'days': [
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-      ]
-    },
-    {
-      'habitName': 'hi how are you khan?',
-      'days': [
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-      ]
-    },
-    {
-      'habitName': 'hi how are you khan?',
-      'days': [
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-      ]
-    },
-    {
-      'habitName': 'hi how are you khan?',
-      'days': [
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-      ]
-    },
-    {
-      'habitName': 'hi how are you khan?',
-      'days': [
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-      ]
-    },
-    {
-      'habitName': 'hi how are you khan?',
-      'days': [
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-      ]
-    },
-    {
-      'habitName': 'hi how are you khan?',
-      'days': [
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-      ]
-    },
-    {
-      'habitName': 'hi how are you khan?',
-      'days': [
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-      ]
-    },
-    {
-      'habitName': 'hi how are you khan?',
-      'days': [
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-      ]
-    },
-    {
-      'habitName': 'hi how are you khan?',
-      'days': [
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-      ]
-    },
-    {
-      'habitName': 'hi how are you khan?',
-      'days': [
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-      ]
-    },
-    {
-      'habitName': 'hi how are you abxcsdf?',
-      'days': [
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': true},
-        {'isHabitDoneForToday': false},
-        {'isHabitDoneForToday': false},
-      ]
-    },
-  ];
+  List<Habits> habitList = [];
+  TextEditingController habitFieldController = TextEditingController();
+  final FocusNode _focusNode = FocusNode();
+  final habitRepo = getIt.get<IHabitRepository>();
 
   @override
   void initState() {
@@ -187,8 +27,97 @@ class _HabitTableState extends State<HabitTable> {
   }
 
   Future<void> _initializeHabitTable() async {
-    WidgetsBinding.instance.addPostFrameCallback((_) async {});
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      getAllHabitsFromMobileDB();
+    });
   }
+
+  Future<void> getAllHabitsFromMobileDB() async {
+    var allHabitsWithItsTrackingDays =
+        await habitRepo.getHabitsAndHabitsTrackingDaysListAsync();
+    if (allHabitsWithItsTrackingDays?.length == 0) return;
+    List<Habits> habits = Habits.parseHabitsData(allHabitsWithItsTrackingDays!);
+    if (habits != null) {
+      setState(() {
+        habitList = habits;
+      });
+    }
+  }
+
+  Future<void> addHabitHandler(BuildContext dialogContext) async {
+    if (habitFieldController.text.length > 0) {
+      DateTime now = DateTime.now();
+      String formattedDateNow = DateFormat('yyyy-MM-dd').format(now);
+      Habits newHabit = Habits(
+          habitID: 0,
+          habitName: habitFieldController.text,
+          created_At: formattedDateNow,
+          habitsTrackingDays: [
+            HabitsTrackingDays(
+                habitsTrackingDaysID: 0,
+                isHabitDoneToday: 0,
+                createdAt: formattedDateNow,
+                habitId: 1),
+            HabitsTrackingDays(
+                habitsTrackingDaysID: 0,
+                isHabitDoneToday: 0,
+                createdAt: formattedDateNow,
+                habitId: 0),
+            HabitsTrackingDays(
+                habitsTrackingDaysID: 0,
+                isHabitDoneToday: 0,
+                createdAt: formattedDateNow,
+                habitId: 0),
+            HabitsTrackingDays(
+                habitsTrackingDaysID: 0,
+                isHabitDoneToday: 0,
+                createdAt: formattedDateNow,
+                habitId: 0),
+            HabitsTrackingDays(
+                habitsTrackingDaysID: 0,
+                isHabitDoneToday: 0,
+                createdAt: formattedDateNow,
+                habitId: 0),
+            HabitsTrackingDays(
+                habitsTrackingDaysID: 0,
+                isHabitDoneToday: 0,
+                createdAt: formattedDateNow,
+                habitId: 0),
+            HabitsTrackingDays(
+                habitsTrackingDaysID: 0,
+                isHabitDoneToday: 0,
+                createdAt: formattedDateNow,
+                habitId: 0),
+          ]);
+      await habitRepo.saveHabitToMobileDbAsync(newHabit);
+      getAllHabitsFromMobileDB();
+      print('data saved to db');
+      habitFieldController.clear();
+      Navigator.of(dialogContext).pop();
+    }
+  }
+
+  Future<void> updateHabitDoneStatus(
+      int habitIndex, int habitTrackingIndex) async {
+    int previousHabitTrackingDoneToday = habitList[habitIndex]
+        .habitsTrackingDays[habitTrackingIndex]
+        .isHabitDoneToday!;
+    List<Habits> updateHabitsTrackingStatusList = [...habitList];
+    updateHabitsTrackingStatusList[habitIndex]
+        .habitsTrackingDays[habitTrackingIndex]
+        .isHabitDoneToday = previousHabitTrackingDoneToday == 0 ? 1 : 0;
+    setState(() {
+      habitList = [...updateHabitsTrackingStatusList];
+    });
+    habitRepo.updateSingleHabitTrackingStatusToMobileDbAsync(
+        previousHabitTrackingDoneToday == 0 ? 1 : 0,
+        habitList[habitIndex]
+            .habitsTrackingDays[habitTrackingIndex]
+            .habitsTrackingDaysID!);
+    print('update tracking habit done');
+  }
+
+  onTapHabitInputHandler() {}
 
   @override
   Widget build(BuildContext context) {
@@ -397,25 +326,25 @@ class _HabitTableState extends State<HabitTable> {
                         Container(
                           padding: EdgeInsets.all(8.0),
                           child: Text(
-                            habitList[habitIndex]['habitName'],
+                            habitList[habitIndex].habitName!,
                             style: TextStyle(color: Colors.white),
                           ),
                         ),
                         // Create a TableCell for each generated container
-                        ...List.generate(habitList[habitIndex]['days'].length,
-                            (index) {
+                        ...List.generate(
+                            habitList[habitIndex].habitsTrackingDays.length,
+                            (habitTrackingIndex) {
                           return TableCell(
                             verticalAlignment: TableCellVerticalAlignment.fill,
                             child: TextButton(
-                              onPressed: () {
-                                // Define the action when the button is pressed
-                                print(
-                                    'Button pressed for habit: ${habitList[habitIndex]['habitName']} on day: ${index + 1}');
-                              },
+                              onPressed: () => updateHabitDoneStatus(
+                                  habitIndex, habitTrackingIndex),
                               style: TextButton.styleFrom(
-                                backgroundColor: habitList[habitIndex]['days']
-                                            [index]['isHabitDoneForToday'] ==
-                                        true
+                                backgroundColor: habitList[habitIndex]
+                                            .habitsTrackingDays[
+                                                habitTrackingIndex]
+                                            .isHabitDoneToday ==
+                                        1
                                     ? Color.fromRGBO(45, 162, 13, 1)
                                     : Color.fromRGBO(36, 39, 35, 1.0),
                                 shape: RoundedRectangleBorder(
@@ -425,9 +354,11 @@ class _HabitTableState extends State<HabitTable> {
                                 padding: EdgeInsets
                                     .zero, // Remove padding for a simpler look
                               ),
-                              child: habitList[habitIndex]['days'][index]
-                                          ['isHabitDoneForToday'] ==
-                                      true
+                              child: habitList[habitIndex]
+                                          .habitsTrackingDays[
+                                              habitTrackingIndex]
+                                          .isHabitDoneToday ==
+                                      1
                                   ? Icon(
                                       Icons.check,
                                       color: Colors.white,
@@ -483,6 +414,108 @@ class _HabitTableState extends State<HabitTable> {
                         onPressed: () {
                           // Action when the button is pressed
                           print('Add Habit button clicked');
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return AlertDialog(
+                                backgroundColor: Colors.black,
+                                title: Text(
+                                  "Add new habit",
+                                  style: TextStyle(
+                                      color: Color.fromRGBO(45, 162, 13, 1)),
+                                ),
+                                content: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      child: TextFormField(
+                                        maxLines: null,
+                                        keyboardType: TextInputType.multiline,
+                                        showCursor: true,
+                                        focusNode: _focusNode,
+                                        cursorColor: Colors.white,
+                                        controller: habitFieldController,
+                                        onTap: onTapHabitInputHandler,
+                                        validator: (value) {
+                                          if (value == null) {
+                                            return '';
+                                          }
+                                        },
+                                        onChanged: (text) {},
+                                        decoration: InputDecoration(
+                                            contentPadding:
+                                                EdgeInsets.symmetric(
+                                                    vertical: 7),
+                                            hintText: 'Habit',
+                                            // border: b,
+                                            enabledBorder: UnderlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Color.fromRGBO(
+                                                      45,
+                                                      162,
+                                                      13,
+                                                      1)), // Color when input is not focused
+                                            ),
+                                            focusedBorder: UnderlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Color.fromRGBO(
+                                                      45, 162, 13, 1),
+                                                  width:
+                                                      2.0), // Color when input is focused
+                                            ),
+                                            //  focusedBorder: InputBorder.none,
+                                            hintStyle: TextStyle(
+                                                color: Color.fromRGBO(
+                                                    45, 162, 13, 1),
+                                                fontSize: 16)),
+                                        style: TextStyle(
+                                          color: Color.fromRGBO(45, 162, 13, 1),
+                                          fontSize: 16,
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                                actions: [
+                                  TextButton(
+                                    child: Text("Cancel"),
+                                    style: ButtonStyle(
+                                      textStyle: MaterialStateProperty.all(
+                                        TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      foregroundColor:
+                                          MaterialStateProperty.all(
+                                              Colors.red), // Color of the text
+                                    ),
+                                    onPressed: () {
+                                      Navigator.of(context)
+                                          .pop(); // Close the dialog
+                                    },
+                                  ),
+                                  TextButton(
+                                    child: Text("Add"),
+                                    onPressed: () => addHabitHandler(context),
+                                    style: ButtonStyle(
+                                      textStyle: MaterialStateProperty.all(
+                                        TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      foregroundColor:
+                                          MaterialStateProperty.all(
+                                              Color.fromRGBO(45, 162, 13,
+                                                  1)), // Color of the text
+                                    ),
+                                  ),
+                                ],
+                              );
+                            },
+                          );
                         },
                         child: Text(
                           '+ new habit',

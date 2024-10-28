@@ -37,12 +37,15 @@ class DatabaseContext {
 
   Future<void> createHabitsTrackingDaysTable(Database database) async {
     await database.execute('''
-      CREATE TABLE HabitsTrackingDays (
+    CREATE TABLE HabitsTrackingDays (
       HabitsTrackingDaysID INTEGER PRIMARY KEY AUTOINCREMENT,
+      HabitId INTEGER NOT NULL, -- Define the foreign key column
       IsHabitDoneToday INTEGER NOT NULL CHECK (IsHabitDoneToday IN (0, 1)),
-      HabitDoneAt TEXT NOT NULL
+      CreatedAt TEXT NOT NULL,
       FOREIGN KEY (HabitId) REFERENCES Habits(HabitID)
-      );
-          ''');
+    );
+  ''');
   }
+
+  // get the last row of habittrackingdays for tracking and for how much insert does we need if user have yestarday record then only add one habittrackingDays row for each habits other wise it will increase
 }

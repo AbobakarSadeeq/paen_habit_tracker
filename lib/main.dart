@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:paen_habit_tracker/route/router.dart';
+import 'package:paen_habit_tracker/service_locator.dart';
 
 void main() {
   final AppRoute appRoute = AppRoute();
+  setupLocator();
   runApp(MyApp(router: appRoute.router));
 }
 
