@@ -3,12 +3,19 @@ import 'package:intl/intl.dart';
 import 'package:paen_habit_tracker/home/models/habits.dart';
 import 'package:paen_habit_tracker/home/models/habits_tracking_days.dart';
 import 'package:paen_habit_tracker/home/repository/habit_repository.dart';
+import 'package:paen_habit_tracker/home/services/habit_service.dart';
 import 'package:paen_habit_tracker/home/view_modal/habits_view_modal.dart';
 import 'package:paen_habit_tracker/service_locator.dart';
 
 class HabitTable extends StatefulWidget {
   dynamic last7Days;
-  HabitTable({super.key, this.last7Days});
+  final VoidCallback onGetLast7DaysUpdate;
+  final VoidCallback updateCurrentDateIsStatus;
+  HabitTable(
+      {super.key,
+      this.last7Days,
+      required this.onGetLast7DaysUpdate,
+      required this.updateCurrentDateIsStatus});
 
   @override
   _HabitTableState createState() => _HabitTableState();
@@ -19,6 +26,7 @@ class _HabitTableState extends State<HabitTable> {
   TextEditingController habitFieldController = TextEditingController();
   final FocusNode _focusNode = FocusNode();
   final habitRepo = getIt.get<IHabitRepository>();
+  final habitService = getIt.get<HabitService>();
 
   @override
   void initState() {
@@ -29,6 +37,7 @@ class _HabitTableState extends State<HabitTable> {
   Future<void> _initializeHabitTable() async {
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       getAllHabitsFromMobileDB();
+      _addedAllHabitsSlotsOnTrackingHabitDays();
     });
   }
 
@@ -44,6 +53,17 @@ class _HabitTableState extends State<HabitTable> {
     }
   }
 
+  void _addedAllHabitsSlotsOnTrackingHabitDays() {
+    habitService.addedSingleDaySlotOfHabit.stream.listen((isHabitSlotAdded) {
+      if (isHabitSlotAdded == true) {
+        getAllHabitsFromMobileDB();
+        widget.onGetLast7DaysUpdate();
+        widget.updateCurrentDateIsStatus();
+      }
+    });
+    habitService.addedSingleDaySlotOfHabit.add(false);
+  }
+
   Future<void> addHabitHandler(BuildContext dialogContext) async {
     if (habitFieldController.text.length > 0) {
       DateTime now = DateTime.now();
@@ -52,43 +72,7 @@ class _HabitTableState extends State<HabitTable> {
           habitID: 0,
           habitName: habitFieldController.text,
           created_At: formattedDateNow,
-          habitsTrackingDays: [
-            HabitsTrackingDays(
-                habitsTrackingDaysID: 0,
-                isHabitDoneToday: 0,
-                createdAt: formattedDateNow,
-                habitId: 1),
-            HabitsTrackingDays(
-                habitsTrackingDaysID: 0,
-                isHabitDoneToday: 0,
-                createdAt: formattedDateNow,
-                habitId: 0),
-            HabitsTrackingDays(
-                habitsTrackingDaysID: 0,
-                isHabitDoneToday: 0,
-                createdAt: formattedDateNow,
-                habitId: 0),
-            HabitsTrackingDays(
-                habitsTrackingDaysID: 0,
-                isHabitDoneToday: 0,
-                createdAt: formattedDateNow,
-                habitId: 0),
-            HabitsTrackingDays(
-                habitsTrackingDaysID: 0,
-                isHabitDoneToday: 0,
-                createdAt: formattedDateNow,
-                habitId: 0),
-            HabitsTrackingDays(
-                habitsTrackingDaysID: 0,
-                isHabitDoneToday: 0,
-                createdAt: formattedDateNow,
-                habitId: 0),
-            HabitsTrackingDays(
-                habitsTrackingDaysID: 0,
-                isHabitDoneToday: 0,
-                createdAt: formattedDateNow,
-                habitId: 0),
-          ]);
+          habitsTrackingDays: []);
       await habitRepo.saveHabitToMobileDbAsync(newHabit);
       getAllHabitsFromMobileDB();
       print('data saved to db');
@@ -330,7 +314,6 @@ class _HabitTableState extends State<HabitTable> {
                             style: TextStyle(color: Colors.white),
                           ),
                         ),
-                        // Create a TableCell for each generated container
                         ...List.generate(
                             habitList[habitIndex].habitsTrackingDays.length,
                             (habitTrackingIndex) {

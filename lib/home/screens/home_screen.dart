@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:paen_habit_tracker/home/services/habit_service.dart';
+import 'package:paen_habit_tracker/service_locator.dart';
 import 'package:table_calendar/table_calendar.dart';
 import '../models/habits.dart';
 import '../widgets/habit_table.dart';
@@ -19,6 +21,7 @@ class _HomeScreen extends State<HomeScreen> {
   String currentWeekNo = "";
   dynamic last7Days = [];
   List<Habits> habits = [];
+  final habitService = getIt.get<HabitService>();
 
   @override
   void initState() {
@@ -123,6 +126,13 @@ class _HomeScreen extends State<HomeScreen> {
     return currentYear;
   }
 
+  void _updateCurrentDateIsStatus() {
+    setState(() {
+      last7Days[0]['isCurrentDateIsTodayDate'] = true;
+      last7Days[1]['isCurrentDateIsTodayDate'] = false;
+    });
+  }
+
   _changeMonth() {}
 
   @override
@@ -209,8 +219,11 @@ class _HomeScreen extends State<HomeScreen> {
                 ),
                 Container(
                   child: last7Days.length > 0
-                      ? HabitTable(last7Days: last7Days)
-                      : Container(), // last7DaysList:last7Days
+                      ? HabitTable(
+                          last7Days: last7Days,
+                          onGetLast7DaysUpdate: _getLast7Days,
+                          updateCurrentDateIsStatus: _updateCurrentDateIsStatus)
+                      : Container(),
                 )
               ],
             ),
