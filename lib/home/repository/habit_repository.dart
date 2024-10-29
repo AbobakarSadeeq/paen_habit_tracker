@@ -50,9 +50,7 @@ class HabitRepository implements IHabitRepository {
       getHabitsAndHabitsTrackingDaysListAsync() async {
     final db = await getIt.get<DatabaseContext>().database;
     final List<String> last7Days = getLast7Days();
-    print(last7Days.map((d) => "'$d'").join(', '));
     final String placeholders = last7Days.map((_) => '?').join(', ');
-    print(placeholders);
     return await db?.rawQuery('''
       SELECT *
       FROM (
