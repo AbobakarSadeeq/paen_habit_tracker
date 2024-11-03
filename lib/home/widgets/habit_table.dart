@@ -380,8 +380,6 @@ class _HabitTableState extends State<HabitTable> {
                       height: 40,
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                            primary:
-                                Colors.transparent, // Transparent background
                             shadowColor:
                                 Colors.transparent, // Remove button shadow
                             shape: RoundedRectangleBorder(
